@@ -1,0 +1,21 @@
+{
+    "name":"gonzalo123/codeBreaker",
+    "authors":[
+        {
+            "name":"Gonzalo Ayuso",
+            "email":"gonzalo123@gmail.com"
+        }
+    ],
+
+    "license":"MIT",
+
+    "autoload":{
+        "psr-0":{
+            "":"lib/"
+        }
+    },
+
+    "require":{
+        "symfony/event-dispatcher": "2.1.x-dev"
+    }
+}
