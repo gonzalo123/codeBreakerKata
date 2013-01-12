@@ -34,16 +34,16 @@ class CodeTest extends \PHPUnit_Framework_TestCase
             $maxAttempsLimit = true;
         });
 
-        $code = new Code(['R', 'A', 'N', 'I'], $this->getMockMatcherWithOutput('XXXX'), $dispatcher);
+        $code = new Code(['R', 'A', 'N', 'I'], $this->getMockMatcherWithOutput(''), $dispatcher);
         $code->setMaxAtteps(3);
-        $this->assertFalse($maxAttempsLimit, 'start');
+        $this->assertFalse($maxAttempsLimit, 'attempt1');
         $code->matchTo(['A', 'R', 'N', 'I']);
-        $this->assertFalse($maxAttempsLimit, 'start');
+        $this->assertFalse($maxAttempsLimit, 'attempt2');
         $code->matchTo(['A', 'R', 'N', 'I']);
-        $this->assertFalse($maxAttempsLimit, 'start');
+        $this->assertFalse($maxAttempsLimit, 'attempt3');
 
         $code->matchTo(['A', 'R', 'N', 'I']);
-        $this->assertTrue($maxAttempsLimit, 'end');
+        $this->assertTrue($maxAttempsLimit, 'max attempt reached');
 
         return $code;
     }
